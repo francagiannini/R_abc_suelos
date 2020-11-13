@@ -1,0 +1,139 @@
+---
+title: "R abc"
+author: "FGK"
+date: "11/13/2020"
+output: 
+  html_document: 
+    theme: spacelab
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+ 
+# R
+
+#### Es un lenguaje y un entorno para gráficos y computación estadística.
+
+![](https://sites.google.com/site/sistemasoperativoshn/_/rsrc/1461901589238/gnu/gnu.jpg)
+
+#### Es un proyecto GNU que es similar al lenguaje y entorno S que fue desarrollado en Bell Laboratories (antes AT&T, ahora Lucent Technologies) por John Chambers y sus amigos.
+
+#### GNU: Conjunto de herramientas software compatible con sistemas UNIX desarrollado por la Free Software Foundation y publicado como código abierto y libre bajo licencias GPL (General Public License, o Permiso al público en general).
+
+![Silicon Valley](https://images-na.ssl-images-amazon.com/images/I/81WwZp4PbbL._AC_SX522_.jpg)
+
+## R via R Studio
+
+#### [R](http://www.r-project.org) consta de una aplicación central y de librerías de multitud de temas que se pueden instalar según necesidad.
+
+#### [RStudio](https://rstudio.com/) un entorno de desarrollo integrado para R. 
+
+![](https://bookdown.org/oscar_teach/estadistica_aplicada_con_r/r-rstudio.png)
+
+#### Incluye:
+  
+#### consola, 
+  
+#### editor de sintaxis que apoya la ejecución de código
+  
+#### herramientas para el trazado, la depuración y la gestión del espacio de trabajo
+
+
+
+# A
+
+## Abrir archivos desde diferentes fuentes
+
+## Interactuar con bases de datos tablas y graficos resumenes
+
+![tydiverse](https://gblobscdn.gitbook.com/assets%2F-M38c0s4s0YCM6dGwrz1%2F-M7RetZBh2Wf7TnfLhKs%2F-M7RkjP-fqIgI8ZsDmKh%2Ftidyverse2.png?alt=media&token=73bf5842-1ae0-4ca4-8622-ec2ae9063a7a)
+
+![tydi_tools](https://education.rstudio.com/blog/2020/07/teaching-the-tidyverse-in-2020-part-1-getting-started/img/tidyverse-packages.png)
+
+#### Links de utilidad
+
+#### [The Tidyverse Cookbook de Garrett Grolemund](https://rstudio-education.github.io/tidyverse-cookbook/index.html)
+
+#### [Modern R with the tidyverse de Bruno Rodrigues](https://b-rodrigues.github.io/modern_R/)
+
+# B
+
+## El abc pero de datos espaciales 
+
+![utopia](https://timogrossenbacher.ch/wp-content/uploads/2019/04/bm-thematic-bivariate-map-with-legend-1.png)
+
+
+## sf
+
+#### Manejo de datos espaciales
+
+##### siempre sf
+![sf](https://user-images.githubusercontent.com/520851/34887433-ce1d130e-f7c6-11e7-83fc-d60ad4fae6bd.gif)
+
+## tmap 
+
+#### visualización simple y efectiva
+
+#### Links de utilidad
+
+#### [Geocomputation with R de Robin Lovelace, Jakub Nowosad, Jannes Muenchow](https://geocompr.robinlovelace.net/)
+
+#### [Guía para el análisis de datos espaciales. Aplicaciones en agricultura de Cordoba et al](http://www.agro.unc.edu.ar/~estadisticaaplicada/GpADEAA/)
+
+
+# C
+
+## R Markdown
+
+#### Este es un documento de R Markdown. Markdown es una sintaxis de formato simple para la creación de documentos HTML, PDF y MS Word. <http://rmarkdown.rstudio.com>.
+
+##### Al hacer clic en el botón **Knit**, se generará un documento que incluye tanto el contenido como la salida de cualquier fragmento de código R incrustado dentro del documento. Puede incrustar un fragmento de código R como este:
+
+```{r code}
+
+dib <- read.table(
+  file = "data/dib2020.txt",
+  header = TRUE,
+  na.strings = "NA"
+)
+
+summary(dib$Kda)
+
+```
+
+#### Incluyendo las salidas con graficos y todo
+
+
+```{r pressure, echo=TRUE}
+library(tmap)
+library(sf)
+library(tmaptools)
+
+tmap_mode("view")
+
+dib_sf <- st_as_sf(dib, coords=c("X.UTM20","Y.UTM20"), crs=32720)
+
+tm_shape(dib_sf) +
+  tm_dots(
+    col = "Kda",
+    title = "Kd atrazina",
+    palette = "-viridis",
+      popup.format = list(
+      digits = 1,
+      decimal.mark = ",",
+      big.mark = ".",
+      suffix = " L/Kg"
+    )
+    )
+```
+
+
+
+### Si largamos con esto brillamos
+
+![littleyoda](https://i.pinimg.com/originals/f4/2a/fc/f42afca35c89d1ac695d169e6e3ceb55.gif)
+
+Material en: 
