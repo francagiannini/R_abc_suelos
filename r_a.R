@@ -5,7 +5,7 @@ dib <- read.table(
   header = TRUE,
   na.strings = "NA"
 )
-View("dib")
+View(dib)
 summary(dib)
 
 limites_nodos <- read.table(

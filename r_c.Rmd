@@ -136,4 +136,15 @@ tm_shape(dib_sf) +
 
 ![littleyoda](https://i.pinimg.com/originals/f4/2a/fc/f42afca35c89d1ac695d169e6e3ceb55.gif)
 
-Material en: 
+#### Material en: https://github.com/francagiannini/R_abc_suelos
+
+
+
+### El R def
+
+#### [AQP](http://ncss-tech.github.io/AQP/)
+
+### [rgee](https://csaybar.github.io/rgee-examples/)
+
+#### [Predictive Soil Mapping with R](https://soilmapper.org/)
+
